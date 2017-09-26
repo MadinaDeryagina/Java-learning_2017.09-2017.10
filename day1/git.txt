@@ -1,0 +1,133 @@
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git clone https://github.com/kluik/java-junior
+Cloning into 'java-junior'...
+remote: Counting objects: 1407, done.
+remote: Compressing objects: 100% (70/70), done.
+remote: Total 1407 (delta 25), reused 98 (delta 15), pack-reused 1297
+Receiving objects: 100% (1407/1407), 23.51 MiB | 186.00 KiB/s, done.
+Resolving deltas: 100% (370/370), done.
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ dir
+java-junior
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ ls
+java-junior/
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ ls -al
+total 16
+drwxr-xr-x 1 klu 197121 0 сен 25 17:34 ./
+drwxr-xr-x 1 klu 197121 0 сен 25 17:30 ../
+drwxr-xr-x 1 klu 197121 0 сен 25 17:36 java-junior/
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git clone https://github.com/kluik/java-junior
+fatal: destination path 'java-junior' already exists and is not an empty directory.
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git clone https://github.com/kluik/java-junior
+fatal: destination path 'java-junior' already exists and is not an empty directory.
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git clone https://github.com/kluik/java-junior
+fatal: destination path 'java-junior' already exists and is not an empty directory.
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ rm -rf ./java-junior
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git clone https://github.com/kluik/java-junior
+Cloning into 'java-junior'...
+remote: Counting objects: 1407, done.
+remote: Compressing objects: 100% (70/70), done.
+remote: Total 1407 (delta 25), reused 98 (delta 15), pack-reused 1297
+Receiving objects: 100% (1407/1407), 23.51 MiB | 733.00 KiB/s, done.
+Resolving deltas: 100% (370/370), done.
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ cd java-junior/
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ cd ..
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects
+$ cd java-junior/
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ dir
+_config.yml  pom.xml  README.md  src
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ ls -al
+total 30
+drwxr-xr-x 1 klu 197121     0 сен 25 17:39 ./
+drwxr-xr-x 1 klu 197121     0 сен 25 17:38 ../
+drwxr-xr-x 1 klu 197121     0 сен 25 17:40 .git/
+-rw-r--r-- 1 klu 197121   189 сен 25 17:39 .gitignore
+-rw-r--r-- 1 klu 197121    27 сен 25 17:39 _config.yml
+-rw-r--r-- 1 klu 197121  1236 сен 25 17:39 pom.xml
+-rw-r--r-- 1 klu 197121 16036 сен 25 17:40 README.md
+drwxr-xr-x 1 klu 197121     0 сен 25 17:39 src/
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ git commin -a -m "test commit"
+git: 'commin' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ git commit -a -m "test commit"
+[master f42ee2b] test commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)
+$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/kluik/java-junior
+   c827cde..f42ee2b  master -> master
+
+klu@DESKTOP-S1V880V MINGW64 ~/projects/java-junior (master)

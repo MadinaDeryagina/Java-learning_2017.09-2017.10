@@ -1,0 +1,13 @@
+	Про сертификацию: Можно сдать экзамент(получить сертификат) http://education.oracle.com/ -> certification - view all exam, самостоятельно 
+это сделать очень сложно.
+1. Чтобы подготовиться, можно подписаться на журнал Oracle Java Magazine.
+2. Если говорить про программера, есть готовые вопросы с ответами. BrainDump - это готовые ответы, которые можно получить в гугле код сертификата.
+3. Есть книжки, которые можно найти по коду экзамена, либо по названию этого экзамена.
+	
+	Дополнительные материалы:
+	https://docs.google.com/document/d/14r58sL0fKwhJBkfS-yYHhVEVH6sTdQ77QOgCu8Y3hsM/edit#
+	# Микро-дизайн
+	Robert Martin, Clean Code
+	Martin Fowler, Refactoring
+	Eric Freeman, Design Patterns (Head First)
+	Joshua Kerievsky, Refactoring to Patterns

@@ -1,0 +1,6 @@
+		1-ая практика.
+1.	Проверяем, доступен ли интерпретатор, в терминале java -version и javac -version, если что то из этого не отрабатывает, надо 
+отредактировать переменную PATH, добавить туда пути до bin в jdk и jre
+
+Список коммитов
+https://github.com/eugene-krivosheyev/java-junior/tree/2017-10-jet/flipcharts

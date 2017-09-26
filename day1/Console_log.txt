@@ -1,0 +1,2073 @@
+C:\Users\klu\Desktop\Java>ll
+"ll" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:44    <DIR>          .
+25.09.2017  13:44    <DIR>          ..
+25.09.2017  13:44               404 A.class
+25.09.2017  13:28               103 A.java
+25.09.2017  13:40    <DIR>          com
+25.09.2017  13:44               498 Demo.class
+25.09.2017  13:44               310 Demo.java
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:45             4 285 Java4.txt
+25.09.2017  13:38               800 Printer.java
+              10 файлов         11 088 байт
+               3 папок  212 295 385 088 байт свободно
+
+C:\Users\klu\Desktop\Java>del com
+C:\Users\klu\Desktop\Java\com\*, вы уверены [Y(да)/N(нет)]? y
+
+C:\Users\klu\Desktop\Java>del *.class
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:50    <DIR>          .
+25.09.2017  13:50    <DIR>          ..
+25.09.2017  13:28               103 A.java
+25.09.2017  13:40    <DIR>          com
+25.09.2017  13:44               310 Demo.java
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:45             4 285 Java4.txt
+25.09.2017  13:38               800 Printer.java
+               8 файлов         10 186 байт
+               3 папок  212 295 376 896 байт свободно
+
+C:\Users\klu\Desktop\Java>mdkir src
+"mdkir" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java>mkdir src
+
+C:\Users\klu\Desktop\Java>mv *.java ./src/
+"mv" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java>move ./*.java ./src/
+C:\Users\klu\Desktop\Java\A.java
+C:\Users\klu\Desktop\Java\Demo.java
+C:\Users\klu\Desktop\Java\Printer.java
+Перемещено файлов:         3.
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:51    <DIR>          .
+25.09.2017  13:51    <DIR>          ..
+25.09.2017  13:40    <DIR>          com
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:51             4 406 Java4.txt
+25.09.2017  13:51    <DIR>          src
+               5 файлов          9 094 байт
+               4 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java>mkdir targer
+
+C:\Users\klu\Desktop\Java>javac -d ./targer ./src/Printer.java
+
+C:\Users\klu\Desktop\Java>ll
+"ll" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:52    <DIR>          .
+25.09.2017  13:52    <DIR>          ..
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:53             4 515 Java4.txt
+25.09.2017  13:51    <DIR>          src
+25.09.2017  13:53    <DIR>          targer
+               5 файлов          9 203 байт
+               4 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java>del ./targer/com
+Недопустимый ключ: "targer".
+
+C:\Users\klu\Desktop\Java>del targer/com
+Недопустимый ключ: "com".
+
+C:\Users\klu\Desktop\Java>del targer/com/
+Недопустимый ключ: "com".
+
+C:\Users\klu\Desktop\Java>del /?
+Удаление одного или нескольких файлов.
+
+DEL [/P] [/F] [/S] [/Q] [/A[[:]атрибуты]] имена
+ERASE [/P] [/F] [/S] [/Q] [/A[[:]атрибуты]] имена
+
+  имена         Список из одного или нескольких файлов или каталогов.
+                Для удаления группы файлов можно использовать подстановочные
+                знаки. Если указан каталог, будут удалены все файлы в этом
+                каталоге.
+
+  /P            Запрос подтверждения перед удалением каждого файла.
+  /F            Принудительное удаление файлов, доступных только для чтения.
+  /S            Удаление указанных файлов из всех подкаталогов.
+  /Q            Отключение запроса на подтверждение при удалении файлов.
+  /A            Отбор файлов для удаления по атрибутам.
+  атрибуты      R  Файлы, доступные только для чтения.
+                S  Системные файлы.
+                H  Скрытые файлы.
+                A  Файлы, готовые для архивирования.
+                I  Файлы с неиндексированным содержимым.
+                L  Точки повторной обработки.
+                -  Префикс "-" имеет значение НЕ.
+
+Изменение команд DEL и ERASE при включении расширенной обработки команд:
+
+Результаты вывода для ключа /S принимают обратный характер, то есть выводятся
+только имена удаленных файлов, а не файлов, которые не удалось найти.
+
+C:\Users\klu\Desktop\Java>mkdir ./src/com/jet/
+Ошибка в синтаксисе команды.
+
+C:\Users\klu\Desktop\Java>mkdir ./src/com/jet
+Ошибка в синтаксисе команды.
+
+C:\Users\klu\Desktop\Java>cd src
+
+C:\Users\klu\Desktop\Java\src>javac ./Demo.java
+
+C:\Users\klu\Desktop\Java\src>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\src
+
+25.09.2017  13:56    <DIR>          .
+25.09.2017  13:56    <DIR>          ..
+25.09.2017  13:56               404 A.class
+25.09.2017  13:28               103 A.java
+25.09.2017  13:55    <DIR>          com
+25.09.2017  13:56               498 Demo.class
+25.09.2017  13:44               310 Demo.java
+25.09.2017  13:38               800 Printer.java
+               5 файлов          2 115 байт
+               3 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java\src>del *.class
+
+C:\Users\klu\Desktop\Java\src>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\src
+
+25.09.2017  13:56    <DIR>          .
+25.09.2017  13:56    <DIR>          ..
+25.09.2017  13:28               103 A.java
+25.09.2017  13:55    <DIR>          com
+25.09.2017  13:44               310 Demo.java
+25.09.2017  13:38               800 Printer.java
+               3 файлов          1 213 байт
+               3 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java\src>javac ./Demo.java -d ../target/
+javac: directory not found: ../target/
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\src>javac ./Demo.java -d ../target
+javac: directory not found: ../target
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\src>javac Demo.java -d ../target
+javac: directory not found: ../target
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\src>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\src
+
+25.09.2017  13:56    <DIR>          .
+25.09.2017  13:56    <DIR>          ..
+25.09.2017  13:28               103 A.java
+25.09.2017  13:55    <DIR>          com
+25.09.2017  13:44               310 Demo.java
+25.09.2017  13:38               800 Printer.java
+               3 файлов          1 213 байт
+               3 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java\src>javac ./Demo.java -d ../target/
+javac: directory not found: ../target/
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\src>javac -d ../target ./Demo.java
+javac: directory not found: ../target
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\src>dir ..
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:52    <DIR>          .
+25.09.2017  13:52    <DIR>          ..
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:53             4 515 Java4.txt
+25.09.2017  13:56    <DIR>          src
+25.09.2017  13:54    <DIR>          targer
+               5 файлов          9 203 байт
+               4 папок  212 295 114 752 байт свободно
+
+C:\Users\klu\Desktop\Java\src>javac -d ../target ./Demo.java
+
+C:\Users\klu\Desktop\Java\src>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\src
+
+25.09.2017  13:56    <DIR>          .
+25.09.2017  13:56    <DIR>          ..
+25.09.2017  13:28               103 A.java
+25.09.2017  13:55    <DIR>          com
+25.09.2017  13:44               310 Demo.java
+25.09.2017  13:38               800 Printer.java
+               3 файлов          1 213 байт
+               3 папок  212 294 914 048 байт свободно
+
+C:\Users\klu\Desktop\Java\src>cd ..
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  13:57    <DIR>          .
+25.09.2017  13:57    <DIR>          ..
+25.09.2017  13:57               404 A.class
+25.09.2017  13:57               498 Demo.class
+               2 файлов            902 байт
+               2 папок  212 294 914 048 байт свободно
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  13:57    <DIR>          .
+25.09.2017  13:57    <DIR>          ..
+25.09.2017  13:57               404 A.class
+25.09.2017  13:57               498 Demo.class
+               2 файлов            902 байт
+               2 папок  212 294 914 048 байт свободно
+
+C:\Users\klu\Desktop\Java\target>del ./*class
+Недопустимый ключ: "*class".
+
+C:\Users\klu\Desktop\Java\target>del *.class
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  13:59    <DIR>          .
+25.09.2017  13:59    <DIR>          ..
+               0 файлов              0 байт
+               2 папок  212 294 914 048 байт свободно
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  13:57    <DIR>          .
+25.09.2017  13:57    <DIR>          ..
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  13:53             4 515 Java4.txt
+25.09.2017  13:56    <DIR>          src
+25.09.2017  13:59    <DIR>          target
+               5 файлов          9 203 байт
+               4 папок  212 294 914 048 байт свободно
+
+C:\Users\klu\Desktop\Java>javac -d target -sourcepath src src/Demo.java
+
+C:\Users\klu\Desktop\Java>java target/Demo
+Error: Could not find or load main class target.Demo
+
+C:\Users\klu\Desktop\Java>java ./target/Demo
+Error: Could not find or load main class ..target.Demo
+
+C:\Users\klu\Desktop\Java>java --help
+Unrecognized option: --help
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+C:\Users\klu\Desktop\Java>java /?
+Error: Could not find or load main class .?
+
+C:\Users\klu\Desktop\Java>java -help
+Usage: java [-options] class [args...]
+           (to execute a class)
+   or  java [-options] -jar jarfile [args...]
+           (to execute a jar file)
+where options include:
+    -d32          use a 32-bit data model if available
+    -d64          use a 64-bit data model if available
+    -server       to select the "server" VM
+                  The default VM is server.
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+                  A ; separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|gc|jni]
+                  enable verbose output
+    -version      print product version and exit
+    -version:<value>
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  require the specified version to run
+    -showversion  print product version and continue
+    -jre-restrict-search | -no-jre-restrict-search
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  include/exclude user private JREs in the version search
+    -? -help      print this help message
+    -X            print help on non-standard options
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:hprof
+                  see also, -agentlib:jdwp=help and -agentlib:hprof=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+See http://www.oracle.com/technetwork/java/javase/documentation/index.html for more details.
+
+C:\Users\klu\Desktop\Java>java -classpath target Demo
+Hello world!
+Test printer
+
+C:\Users\klu\Desktop\Java>
+
+C:\Users\klu\Desktop\Java>javac -d target -sourcepath src:src src/Demo.java
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java>java -classpath target:~ Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java>java -classpath target:target Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java>java -classpath target Demo
+Hello world!
+Test printer
+
+C:\Users\klu\Desktop\Java>java -help
+Usage: java [-options] class [args...]
+           (to execute a class)
+   or  java [-options] -jar jarfile [args...]
+           (to execute a jar file)
+where options include:
+    -d32          use a 32-bit data model if available
+    -d64          use a 64-bit data model if available
+    -server       to select the "server" VM
+                  The default VM is server.
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+                  A ; separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|gc|jni]
+                  enable verbose output
+    -version      print product version and exit
+    -version:<value>
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  require the specified version to run
+    -showversion  print product version and continue
+    -jre-restrict-search | -no-jre-restrict-search
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  include/exclude user private JREs in the version search
+    -? -help      print this help message
+    -X            print help on non-standard options
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:hprof
+                  see also, -agentlib:jdwp=help and -agentlib:hprof=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+See http://www.oracle.com/technetwork/java/javase/documentation/index.html for more details.
+
+C:\Users\klu\Desktop\Java>java -classpath target -classpath2 Demo
+Unrecognized option: -classpath2
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+C:\Users\klu\Desktop\Java>java -classpath target -classpath target2 Demo
+Hello world!
+Test printer
+
+C:\Users\klu\Desktop\Java>javac -d target -sourcepath src:src src/Demo.java
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java>javac -d target -sourcepath src src/Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target -classpath target2 Demo
+Hello world!
+Test printer
+
+C:\Users\klu\Desktop\Java>java -classpath target Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java>java -classpath target -classpath target2 Demo
+Hello world!
+Test printer
+
+C:\Users\klu\Desktop\Java>java -classpath target\:target2 Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java>java -classpath "target:target2" Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java>java -classpath target -classpath target2 Demo
+Hello world!
+Test printer
+
+
+C:\Users\klu\Desktop\Java>javac -help
+Usage: javac <options> <source files>
+where possible options include:
+  -g                         Generate all debugging info
+  -g:none                    Generate no debugging info
+  -g:{lines,vars,source}     Generate only some debugging info
+  -nowarn                    Generate no warnings
+  -verbose                   Output messages about what the compiler is doing
+  -deprecation               Output source locations where deprecated APIs are used
+  -classpath <path>          Specify where to find user class files and annotation processors
+  -cp <path>                 Specify where to find user class files and annotation processors
+  -sourcepath <path>         Specify where to find input source files
+  -bootclasspath <path>      Override location of bootstrap class files
+  -extdirs <dirs>            Override location of installed extensions
+  -endorseddirs <dirs>       Override location of endorsed standards path
+  -proc:{none,only}          Control whether annotation processing and/or compilation is done.
+  -processor <class1>[,<class2>,<class3>...] Names of the annotation processors to run; bypasses default discovery process
+  -processorpath <path>      Specify where to find annotation processors
+  -parameters                Generate metadata for reflection on method parameters
+  -d <directory>             Specify where to place generated class files
+  -s <directory>             Specify where to place generated source files
+  -h <directory>             Specify where to place generated native header files
+  -implicit:{none,class}     Specify whether or not to generate class files for implicitly referenced files
+  -encoding <encoding>       Specify character encoding used by source files
+  -source <release>          Provide source compatibility with specified release
+  -target <release>          Generate class files for specific VM version
+  -profile <profile>         Check that API used is available in the specified profile
+  -version                   Version information
+  -help                      Print a synopsis of standard options
+  -Akey[=value]              Options to pass to annotation processors
+  -X                         Print a synopsis of nonstandard options
+  -J<flag>                   Pass <flag> directly to the runtime system
+  -Werror                    Terminate compilation if warnings occur
+  @<filename>                Read options and filenames from file
+
+
+C:\Users\klu\Desktop\Java>path <path>          Specify where to find user class files and annotation processors
+Не удается найти указанный файл.
+
+C:\Users\klu\Desktop\Java>path <path>          Specify where to find user class files and annotation processors
+Не удается найти указанный файл.
+
+C:\Users\klu\Desktop\Java>javac -classpath target src/Demo.java
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  15:10    <DIR>          .
+25.09.2017  15:10    <DIR>          ..
+25.09.2017  15:07            22 262 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  15:11                 1 Java5.txt
+25.09.2017  15:16    <DIR>          src
+25.09.2017  15:16    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               7 файлов         32 471 байт
+               5 папок  212 302 974 976 байт свободно
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>di
+"di" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:16    <DIR>          .
+25.09.2017  15:16    <DIR>          ..
+25.09.2017  15:02               404 A.class
+25.09.2017  14:03    <DIR>          com
+               1 файлов            404 байт
+               3 папок  212 302 974 976 байт свободно
+
+C:\Users\klu\Desktop\Java\target>cd ...
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>javac -classpath src:target src/Demo.java
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java>java -classpath src:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src^:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>javac -d target -classpath target src/Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src^:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src\:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath "src:target" src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java>jar
+Usage: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
+Options:
+    -c  create new archive
+    -t  list table of contents for archive
+    -x  extract named (or all) files from archive
+    -u  update existing archive
+    -v  generate verbose output on standard output
+    -f  specify archive file name
+    -m  include manifest information from specified manifest file
+    -n  perform Pack200 normalization after creating a new archive
+    -e  specify application entry point for stand-alone application
+        bundled into an executable jar file
+    -0  store only; use no ZIP compression
+    -P  preserve leading '/' (absolute path) and ".." (parent directory) components from file names
+    -M  do not create a manifest file for the entries
+    -i  generate index information for the specified jar files
+    -C  change to the specified directory and include the following file
+If any file is a directory then it is processed recursively.
+The manifest file name, the archive file name and the entry point name are
+specified in the same order as the 'm', 'f' and 'e' flags.
+
+Example 1: to archive two class files into an archive called classes.jar:
+       jar cvf classes.jar Foo.class Bar.class
+Example 2: use an existing manifest file 'mymanifest' and archive all the
+           files in the foo/ directory into 'classes.jar':
+       jar cvfm classes.jar mymanifest -C foo/ .
+
+
+C:\Users\klu\Desktop\Java>jar -cvf target/* my.jar
+my.jar : no such file or directory
+added manifest
+adding: target/com/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: target/Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  15:10    <DIR>          .
+25.09.2017  15:10    <DIR>          ..
+25.09.2017  15:07            22 262 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  15:23               813 Java5.txt
+25.09.2017  15:16    <DIR>          src
+25.09.2017  15:18    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               7 файлов         33 283 байт
+               5 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:18    <DIR>          .
+25.09.2017  15:18    <DIR>          ..
+25.09.2017  15:24             1 430 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+               2 файлов          1 929 байт
+               3 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java\target>jar -cvf * my2.jar
+my2.jar : no such file or directory
+added manifest
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:18    <DIR>          .
+25.09.2017  15:18    <DIR>          ..
+25.09.2017  15:24             1 374 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+               2 файлов          1 873 байт
+               3 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java\target>jar my.jar -cvf *
+Illegal option: y
+Usage: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
+Options:
+    -c  create new archive
+    -t  list table of contents for archive
+    -x  extract named (or all) files from archive
+    -u  update existing archive
+    -v  generate verbose output on standard output
+    -f  specify archive file name
+    -m  include manifest information from specified manifest file
+    -n  perform Pack200 normalization after creating a new archive
+    -e  specify application entry point for stand-alone application
+        bundled into an executable jar file
+    -0  store only; use no ZIP compression
+    -P  preserve leading '/' (absolute path) and ".." (parent directory) components from file names
+    -M  do not create a manifest file for the entries
+    -i  generate index information for the specified jar files
+    -C  change to the specified directory and include the following file
+If any file is a directory then it is processed recursively.
+The manifest file name, the archive file name and the entry point name are
+specified in the same order as the 'm', 'f' and 'e' flags.
+
+Example 1: to archive two class files into an archive called classes.jar:
+       jar cvf classes.jar Foo.class Bar.class
+Example 2: use an existing manifest file 'mymanifest' and archive all the
+           files in the foo/ directory into 'classes.jar':
+       jar cvfm classes.jar mymanifest -C foo/ .
+
+
+C:\Users\klu\Desktop\Java\target>jar -cvf my.jar *
+added manifest
+adding: A.class(in = 1374) (out= 973)(deflated 29%)
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:26    <DIR>          .
+25.09.2017  15:26    <DIR>          ..
+25.09.2017  15:24             1 374 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+25.09.2017  15:26             2 453 my.jar
+               3 файлов          4 326 байт
+               3 папок  212 301 664 256 байт свободно
+
+C:\Users\klu\Desktop\Java\target>java -c Demo my.jar
+Unrecognized option: -c
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+C:\Users\klu\Desktop\Java\target>java -cp Demo my.jar
+Error: Could not find or load main class my.jar
+
+C:\Users\klu\Desktop\Java\target>java -cp my.jar Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\target>java -cp my.jar Demo
+
+
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  14:57    <DIR>          .
+25.09.2017  14:57    <DIR>          ..
+25.09.2017  15:07            22 262 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  13:56    <DIR>          src
+25.09.2017  14:03    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               6 файлов         32 470 байт
+               5 папок  212 303 351 808 байт свободно
+
+C:\Users\klu\Desktop\Java>javac -help
+Usage: javac <options> <source files>
+where possible options include:
+  -g                         Generate all debugging info
+  -g:none                    Generate no debugging info
+  -g:{lines,vars,source}     Generate only some debugging info
+  -nowarn                    Generate no warnings
+  -verbose                   Output messages about what the compiler is doing
+  -deprecation               Output source locations where deprecated APIs are used
+  -classpath <path>          Specify where to find user class files and annotation processors
+  -cp <path>                 Specify where to find user class files and annotation processors
+  -sourcepath <path>         Specify where to find input source files
+  -bootclasspath <path>      Override location of bootstrap class files
+  -extdirs <dirs>            Override location of installed extensions
+  -endorseddirs <dirs>       Override location of endorsed standards path
+  -proc:{none,only}          Control whether annotation processing and/or compilation is done.
+  -processor <class1>[,<class2>,<class3>...] Names of the annotation processors to run; bypasses default discovery process
+  -processorpath <path>      Specify where to find annotation processors
+  -parameters                Generate metadata for reflection on method parameters
+  -d <directory>             Specify where to place generated class files
+  -s <directory>             Specify where to place generated source files
+  -h <directory>             Specify where to place generated native header files
+  -implicit:{none,class}     Specify whether or not to generate class files for implicitly referenced files
+  -encoding <encoding>       Specify character encoding used by source files
+  -source <release>          Provide source compatibility with specified release
+  -target <release>          Generate class files for specific VM version
+  -profile <profile>         Check that API used is available in the specified profile
+  -version                   Version information
+  -help                      Print a synopsis of standard options
+  -Akey[=value]              Options to pass to annotation processors
+  -X                         Print a synopsis of nonstandard options
+  -J<flag>                   Pass <flag> directly to the runtime system
+  -Werror                    Terminate compilation if warnings occur
+  @<filename>                Read options and filenames from file
+
+
+C:\Users\klu\Desktop\Java>path <path>          Specify where to find user class files and annotation processors
+Не удается найти указанный файл.
+
+C:\Users\klu\Desktop\Java>path <path>          Specify where to find user class files and annotation processors
+Не удается найти указанный файл.
+
+C:\Users\klu\Desktop\Java>javac -classpath target src/Demo.java
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  15:10    <DIR>          .
+25.09.2017  15:10    <DIR>          ..
+25.09.2017  15:07            22 262 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  15:11                 1 Java5.txt
+25.09.2017  15:16    <DIR>          src
+25.09.2017  15:16    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               7 файлов         32 471 байт
+               5 папок  212 302 974 976 байт свободно
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>di
+"di" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:16    <DIR>          .
+25.09.2017  15:16    <DIR>          ..
+25.09.2017  15:02               404 A.class
+25.09.2017  14:03    <DIR>          com
+               1 файлов            404 байт
+               3 папок  212 302 974 976 байт свободно
+
+C:\Users\klu\Desktop\Java\target>cd ...
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>javac -classpath src:target src/Demo.java
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java>java -classpath src:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src^:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>javac -d target -classpath target src/Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src^:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath src\:target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath "src:target" src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target src/Demo.java
+Error: Could not find or load main class src.Demo.java
+
+C:\Users\klu\Desktop\Java>java -classpath target Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java>jar
+Usage: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
+Options:
+    -c  create new archive
+    -t  list table of contents for archive
+    -x  extract named (or all) files from archive
+    -u  update existing archive
+    -v  generate verbose output on standard output
+    -f  specify archive file name
+    -m  include manifest information from specified manifest file
+    -n  perform Pack200 normalization after creating a new archive
+    -e  specify application entry point for stand-alone application
+        bundled into an executable jar file
+    -0  store only; use no ZIP compression
+    -P  preserve leading '/' (absolute path) and ".." (parent directory) components from file names
+    -M  do not create a manifest file for the entries
+    -i  generate index information for the specified jar files
+    -C  change to the specified directory and include the following file
+If any file is a directory then it is processed recursively.
+The manifest file name, the archive file name and the entry point name are
+specified in the same order as the 'm', 'f' and 'e' flags.
+
+Example 1: to archive two class files into an archive called classes.jar:
+       jar cvf classes.jar Foo.class Bar.class
+Example 2: use an existing manifest file 'mymanifest' and archive all the
+           files in the foo/ directory into 'classes.jar':
+       jar cvfm classes.jar mymanifest -C foo/ .
+
+
+C:\Users\klu\Desktop\Java>jar -cvf target/* my.jar
+my.jar : no such file or directory
+added manifest
+adding: target/com/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: target/Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  15:10    <DIR>          .
+25.09.2017  15:10    <DIR>          ..
+25.09.2017  15:07            22 262 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  15:23               813 Java5.txt
+25.09.2017  15:16    <DIR>          src
+25.09.2017  15:18    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               7 файлов         33 283 байт
+               5 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:18    <DIR>          .
+25.09.2017  15:18    <DIR>          ..
+25.09.2017  15:24             1 430 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+               2 файлов          1 929 байт
+               3 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java\target>jar -cvf * my2.jar
+my2.jar : no such file or directory
+added manifest
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:18    <DIR>          .
+25.09.2017  15:18    <DIR>          ..
+25.09.2017  15:24             1 374 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+               2 файлов          1 873 байт
+               3 папок  212 301 668 352 байт свободно
+
+C:\Users\klu\Desktop\Java\target>jar my.jar -cvf *
+Illegal option: y
+Usage: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
+Options:
+    -c  create new archive
+    -t  list table of contents for archive
+    -x  extract named (or all) files from archive
+    -u  update existing archive
+    -v  generate verbose output on standard output
+    -f  specify archive file name
+    -m  include manifest information from specified manifest file
+    -n  perform Pack200 normalization after creating a new archive
+    -e  specify application entry point for stand-alone application
+        bundled into an executable jar file
+    -0  store only; use no ZIP compression
+    -P  preserve leading '/' (absolute path) and ".." (parent directory) components from file names
+    -M  do not create a manifest file for the entries
+    -i  generate index information for the specified jar files
+    -C  change to the specified directory and include the following file
+If any file is a directory then it is processed recursively.
+The manifest file name, the archive file name and the entry point name are
+specified in the same order as the 'm', 'f' and 'e' flags.
+
+Example 1: to archive two class files into an archive called classes.jar:
+       jar cvf classes.jar Foo.class Bar.class
+Example 2: use an existing manifest file 'mymanifest' and archive all the
+           files in the foo/ directory into 'classes.jar':
+       jar cvfm classes.jar mymanifest -C foo/ .
+
+
+C:\Users\klu\Desktop\Java\target>jar -cvf my.jar *
+added manifest
+adding: A.class(in = 1374) (out= 973)(deflated 29%)
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:26    <DIR>          .
+25.09.2017  15:26    <DIR>          ..
+25.09.2017  15:24             1 374 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:18               499 Demo.class
+25.09.2017  15:26             2 453 my.jar
+               3 файлов          4 326 байт
+               3 папок  212 301 664 256 байт свободно
+
+C:\Users\klu\Desktop\Java\target>java -c Demo my.jar
+Unrecognized option: -c
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+C:\Users\klu\Desktop\Java\target>java -cp Demo my.jar
+Error: Could not find or load main class my.jar
+
+C:\Users\klu\Desktop\Java\target>java -cp my.jar Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/Demo.java -d target
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot access Printer
+                Printer printer = new Printer();
+                ^
+  bad source file: src\Printer.java
+    file does not contain class Printer
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/com/jet src/com/jet/Printer.java -d target/com/jet/
+javac: file not found: src\com\jet\Printer.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/com.bak/jet -d target/com/jet/
+javac: invalid flag: src/com.bak/jet
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/ -d target/com/jet/
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/com.bak/jet/Printer.java -d target/com/jet/
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/Demo.java -d target
+src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:7: error: cannot access Printer
+                Printer printer = new Printer();
+                ^
+  bad source file: src\Printer.java
+    file does not contain class Printer
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/com/jet src/com/jet/Printer.java -d target/com/jet/
+javac: file not found: src\com\jet\Printer.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/ src/com/jet/Printer.java -d target/com/jet/
+javac: file not found: src\com\jet\Printer.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src/ src/com/jet/Printer.java -d target
+javac: file not found: src\com\jet\Printer.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/com/jet/Printer.java -d target/com/jet/
+javac: file not found: src\com\jet\Printer.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/com/jet/Printer.java -d target/com/jet/
+
+C:\Users\klu\Desktop\Java>javac -sourcepath src src/Demo.java -d target
+
+C:\Users\klu\Desktop\Java>jar -cvf my.jar target
+added manifest
+adding: target/(in = 0) (out= 0)(stored 0%)
+adding: target/A.class(in = 404) (out= 282)(deflated 30%)
+adding: target/com/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/com/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: target/com/jet/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: target/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: target/Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java
+
+25.09.2017  15:37    <DIR>          .
+25.09.2017  15:37    <DIR>          ..
+25.09.2017  15:29            35 719 Console_log.txt
+25.09.2017  12:43               111 Demo.txt
+25.09.2017  11:11             1 226 Java.txt
+25.09.2017  11:56             2 999 Java2.txt
+25.09.2017  12:38               352 Java3.txt
+25.09.2017  14:10             5 520 Java4.txt
+25.09.2017  15:36             1 241 Java5.txt
+25.09.2017  15:37             2 589 my.jar
+25.09.2017  15:33    <DIR>          src
+25.09.2017  15:35    <DIR>          target
+25.09.2017  14:57    <DIR>          target2
+               8 файлов         49 757 байт
+               5 папок  212 300 603 392 байт свободно
+
+C:\Users\klu\Desktop\Java>java -cp my.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java>rm my.jar
+"rm" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java>del my.jar
+
+C:\Users\klu\Desktop\Java>cd target
+
+C:\Users\klu\Desktop\Java\target>jar -cvf * my.jar
+my.jar : no such file or directory
+added manifest
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>jar -cvf my.jar *
+added manifest
+adding: A.class(in = 1999) (out= 1036)(deflated 48%)
+adding: com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/jet/(in = 0) (out= 0)(stored 0%)
+adding: com/jet/com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: com/jet/Printer.class(in = 385) (out= 267)(deflated 30%)
+adding: Demo.class(in = 499) (out= 343)(deflated 31%)
+
+C:\Users\klu\Desktop\Java\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\target
+
+25.09.2017  15:38    <DIR>          .
+25.09.2017  15:38    <DIR>          ..
+25.09.2017  15:38             1 999 A.class
+25.09.2017  14:03    <DIR>          com
+25.09.2017  15:35               499 Demo.class
+25.09.2017  15:38             3 141 my.jar
+               3 файлов          5 639 байт
+               3 папок  212 300 599 296 байт свободно
+
+C:\Users\klu\Desktop\Java\target>java -cp my.jar Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\target>cd ..
+
+C:\Users\klu\Desktop\Java>cd task1
+
+C:\Users\klu\Desktop\Java\task1>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1
+
+25.09.2017  15:43    <DIR>          .
+25.09.2017  15:43    <DIR>          ..
+25.09.2017  15:01               311 Demo.java
+25.09.2017  13:38               800 Printer.java
+               2 файлов          1 111 байт
+               2 папок  212 290 453 504 байт свободно
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath ./src
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath ./src/
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>cd src
+
+C:\Users\klu\Desktop\Java\task1\src>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\src
+
+25.09.2017  15:46    <DIR>          .
+25.09.2017  15:46    <DIR>          ..
+25.09.2017  15:45               324 Demo.java
+25.09.2017  15:44               808 Printer.java
+               2 файлов          1 132 байт
+               2 папок  212 289 396 736 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\src>javac -d target -sourcepath .
+javac: directory not found: target
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1\src>cd ..
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src/Demo.printer
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src/Demo.java
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src/Printer.java
+javac: no source files
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src src/Demo.java
+src\Demo.java:1: error: ';' expected
+package com
+           ^
+1 error
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src src/Demo.java
+src\Demo.java:2: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src src/Demo.java
+src\Demo.java:2: error: package com.jet does not exist
+import com.jet.printer;
+              ^
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src src/Demo.java
+src\Demo.java:2: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src src/Demo.java
+src\Demo.java:2: error: cannot access Printer
+import com.jet.Printer;
+              ^
+  bad source file: src\com\jet\Printer.java
+    file does not contain class com.jet.Printer
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+
+C:\Users\klu\Desktop\Java\task1>javac -d . -sourcepath src  src/Demo.java
+src\Demo.java:2: error: cannot access Printer
+import com.jet.Printer;
+              ^
+  bad source file: src\com\jet\Printer.java
+    file does not contain class com.jet.Printer
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+
+C:\Users\klu\Desktop\Java\task1>javac -d . -sourcepath src  src/com/jet/Printer.java
+src\com\jet\Printer.java:5: error: package com.jet.Printer clashes with class of same name
+package com.jet.Printer;
+^
+1 error
+
+C:\Users\klu\Desktop\Java\task1>javac -d . -sourcepath src  src/com/jet/Printer.java
+
+C:\Users\klu\Desktop\Java\task1>javac -d . -sourcepath src  src/Demo.java
+
+C:\Users\klu\Desktop\Java\task1>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1
+
+25.09.2017  15:54    <DIR>          .
+25.09.2017  15:54    <DIR>          ..
+25.09.2017  15:54    <DIR>          com
+25.09.2017  15:50    <DIR>          src
+25.09.2017  15:46    <DIR>          target
+               0 файлов              0 байт
+               5 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1>cd target
+
+C:\Users\klu\Desktop\Java\task1\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target
+
+25.09.2017  15:46    <DIR>          .
+25.09.2017  15:46    <DIR>          ..
+               0 файлов              0 байт
+               2 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target>cd ..
+
+C:\Users\klu\Desktop\Java\task1>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1
+
+25.09.2017  15:54    <DIR>          .
+25.09.2017  15:54    <DIR>          ..
+25.09.2017  15:54    <DIR>          com
+25.09.2017  15:50    <DIR>          src
+25.09.2017  15:46    <DIR>          target
+               0 файлов              0 байт
+               5 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1>javac -d . -sourcepath target  src/Demo.java
+
+C:\Users\klu\Desktop\Java\task1>dir ./target
+Ошибка в формате параметра: "rget".
+
+C:\Users\klu\Desktop\Java\task1>dir ./target/
+Ошибка в формате параметра: "rget".
+
+C:\Users\klu\Desktop\Java\task1>cd target
+
+C:\Users\klu\Desktop\Java\task1\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target
+
+25.09.2017  15:46    <DIR>          .
+25.09.2017  15:46    <DIR>          ..
+               0 файлов              0 байт
+               2 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target>cd ..
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src  src/Demo.java
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src  src/com/jet/Printer.java
+
+C:\Users\klu\Desktop\Java\task1>javac -d target -sourcepath src  src/Demo.java
+
+C:\Users\klu\Desktop\Java\task1>cd target
+
+C:\Users\klu\Desktop\Java\task1\target>cd com
+
+C:\Users\klu\Desktop\Java\task1\target\com>cd jet
+
+C:\Users\klu\Desktop\Java\task1\target\com\jet>jar -cvf printer.jar *
+added manifest
+adding: Printer.class(in = 385) (out= 267)(deflated 30%)
+
+C:\Users\klu\Desktop\Java\task1\target\com\jet>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target\com\jet
+
+25.09.2017  15:58    <DIR>          .
+25.09.2017  15:58    <DIR>          ..
+25.09.2017  15:56               385 Printer.class
+25.09.2017  15:58               727 printer.jar
+               2 файлов          1 112 байт
+               2 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target\com\jet>cd ..
+
+C:\Users\klu\Desktop\Java\task1\target\com>cd ..
+
+C:\Users\klu\Desktop\Java\task1\target>cd ..
+
+C:\Users\klu\Desktop\Java\task1>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1>cd target
+
+C:\Users\klu\Desktop\Java\task1\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target
+
+25.09.2017  15:55    <DIR>          .
+25.09.2017  15:55    <DIR>          ..
+25.09.2017  15:56    <DIR>          com
+               0 файлов              0 байт
+               3 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target>cd com
+
+C:\Users\klu\Desktop\Java\task1\target\com>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>dor
+"dor" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\klu\Desktop\Java\task1\target\com>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target\com
+
+25.09.2017  15:56    <DIR>          .
+25.09.2017  15:56    <DIR>          ..
+25.09.2017  15:56               408 A.class
+25.09.2017  15:56               503 Demo.class
+25.09.2017  15:58    <DIR>          jet
+               2 файлов            911 байт
+               3 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target\com>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java com.'Demo
+Error: Could not find or load main class com.'Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java com.jet.Demo
+Error: Could not find or load main class com.jet.Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>cd ..
+
+C:\Users\klu\Desktop\Java\task1\target>java com.jet.Demo
+Error: Could not find or load main class com.jet.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java com.Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\task1\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target
+
+25.09.2017  15:55    <DIR>          .
+25.09.2017  15:55    <DIR>          ..
+25.09.2017  15:56    <DIR>          com
+               0 файлов              0 байт
+               3 папок  212 289 236 992 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target>java com.Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\task1\target>java com.Demo
+Hello world!
+Exception in thread "main" java.lang.NoClassDefFoundError: com/jet/Printer
+        at com.Demo.main(Demo.java:8)
+Caused by: java.lang.ClassNotFoundException: com.jet.Printer
+        at java.net.URLClassLoader.findClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        ... 1 more
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>jar -tf printer.jar
+META-INF/
+META-INF/MANIFEST.MF
+Printer.class
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -help
+Usage: java [-options] class [args...]
+           (to execute a class)
+   or  java [-options] -jar jarfile [args...]
+           (to execute a jar file)
+where options include:
+    -d32          use a 32-bit data model if available
+    -d64          use a 64-bit data model if available
+    -server       to select the "server" VM
+                  The default VM is server.
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+                  A ; separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|gc|jni]
+                  enable verbose output
+    -version      print product version and exit
+    -version:<value>
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  require the specified version to run
+    -showversion  print product version and continue
+    -jre-restrict-search | -no-jre-restrict-search
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  include/exclude user private JREs in the version search
+    -? -help      print this help message
+    -X            print help on non-standard options
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:hprof
+                  see also, -agentlib:jdwp=help and -agentlib:hprof=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+See http://www.oracle.com/technetwork/java/javase/documentation/index.html for more details.
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar;com  Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target>tree
+Структура папок
+Серийный номер тома: 000000A2 5A21:45DF
+C:.
+└───com
+    └───jet
+
+C:\Users\klu\Desktop\Java\task1\target>cd ..
+
+C:\Users\klu\Desktop\Java\task1>tree
+Структура папок
+Серийный номер тома: 00000095 5A21:45DF
+C:.
+├───src
+│   └───com
+│       └───jet
+└───target
+    └───com
+        └───jet
+
+C:\Users\klu\Desktop\Java\task1>java -cp target/printer.jar target/com/Demo
+Error: Could not find or load main class target.com.Demo
+
+C:\Users\klu\Desktop\Java\task1>java -cp target/printer.jar com/Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1>cd target
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp target/printer.jar com/Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target>cd com
+
+C:\Users\klu\Desktop\Java\task1\target\com>java -cp target/printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java -cp Demo
+Usage: java [-options] class [args...]
+           (to execute a class)
+   or  java [-options] -jar jarfile [args...]
+           (to execute a jar file)
+where options include:
+    -d32          use a 32-bit data model if available
+    -d64          use a 64-bit data model if available
+    -server       to select the "server" VM
+                  The default VM is server.
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+                  A ; separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|gc|jni]
+                  enable verbose output
+    -version      print product version and exit
+    -version:<value>
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  require the specified version to run
+    -showversion  print product version and continue
+    -jre-restrict-search | -no-jre-restrict-search
+                  Warning: this feature is deprecated and will be removed
+                  in a future release.
+                  include/exclude user private JREs in the version search
+    -? -help      print this help message
+    -X            print help on non-standard options
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:hprof
+                  see also, -agentlib:jdwp=help and -agentlib:hprof=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+See http://www.oracle.com/technetwork/java/javase/documentation/index.html for more details.
+
+C:\Users\klu\Desktop\Java\task1\target\com>java Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>java com.Demo
+Error: Could not find or load main class com.Demo
+
+C:\Users\klu\Desktop\Java\task1\target\com>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/com/Demo.java
+javac: file not found: ..\..\src\com\Demo.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1\target\com>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/com/Demo.java
+..\..\src\com\Demo.java:2: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\com\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\com\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target\com>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java
+..\..\src\Demo.java:2: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target\com>tree
+Структура папок
+Серийный номер тома: 0000009B 5A21:45DF
+C:.
+└───jet
+
+C:\Users\klu\Desktop\Java\task1\target\com>tree /?
+Графическое представление структуры папок или пути.
+
+TREE [диск:][путь] [/F] [/A]
+
+   /F   Вывод имен файлов в каждой папке.
+   /A   Использовать символы ASCII вместо символов национальных алфавитов.
+
+
+C:\Users\klu\Desktop\Java\task1\target\com>tree /F
+Структура папок
+Серийный номер тома: 000000AE 5A21:45DF
+C:.
+└───jet
+
+C:\Users\klu\Desktop\Java\task1\target\com>tree /F *
+Структура папок
+Серийный номер тома: 5A21-45DF
+C:\USERS\KLU\DESKTOP\JAVA\TASK1\TARGET\COM\*
+Путь задан неправильно: \USERS\KLU\DESKTOP\JAVA\TASK1\TARGET\COM\*
+Подпапки отсутствуют
+
+
+C:\Users\klu\Desktop\Java\task1\target\com>cd ..
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java
+..\..\src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java
+..\..\src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/com/Demo.java
+javac: file not found: ..\..\src\com\Demo.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/com/Demo.java
+javac: file not found: ..\..\src\com\Demo.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java
+..\..\src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar -sourcepath ../../src/ ../../src/Demo.java
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar -sourcepath ../../src/ ../../src/Demo.java -d .
+
+C:\Users\klu\Desktop\Java\task1\target>java Demo
+Hello world!
+Test printer2
+
+C:\Users\klu\Desktop\Java\task1\target>java Demo
+Hello world!
+Exception in thread "main" java.lang.NoClassDefFoundError: com/jet/Printer
+        at Demo.main(Demo.java:7)
+Caused by: java.lang.ClassNotFoundException: com.jet.Printer
+        at java.net.URLClassLoader.findClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+        at java.lang.ClassLoader.loadClass(Unknown Source)
+        ... 1 more
+
+C:\Users\klu\Desktop\Java\task1\target>java -cp printer.jar Demo
+Error: Could not find or load main class Demo
+
+C:\Users\klu\Desktop\Java\task1\target>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java -d .
+..\..\src\Demo.java:1: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+..\..\src\Demo.java:7: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1\target>dir
+ Том в устройстве C не имеет метки.
+ Серийный номер тома: 5A21-45DF
+
+ Содержимое папки C:\Users\klu\Desktop\Java\task1\target
+
+25.09.2017  16:27    <DIR>          .
+25.09.2017  16:27    <DIR>          ..
+25.09.2017  16:27               404 A.class
+25.09.2017  16:27    <DIR>          com
+25.09.2017  16:27               499 Demo.class
+25.09.2017  15:58               727 printer.jar
+               3 файлов          1 630 байт
+               3 папок  212 285 550 592 байт свободно
+
+C:\Users\klu\Desktop\Java\task1\target>cd ..
+
+C:\Users\klu\Desktop\Java\task1>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar ../../src/Demo.java -d .
+javac: file not found: ..\..\src\Demo.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+C:\Users\klu\Desktop\Java\task1>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar src/Demo.java -d .
+src\Demo.java:2: error: package com.jet does not exist
+import com.jet.Printer;
+              ^
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar src/Demo.java -d .
+src\Demo.java:2: error: package jet does not exist
+import jet.Printer;
+          ^
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                ^
+  symbol:   class Printer
+  location: class Demo
+src\Demo.java:8: error: cannot find symbol
+                Printer printer = new Printer();
+                                      ^
+  symbol:   class Printer
+  location: class Demo
+3 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar src/Demo.java -d .
+src\Demo.java:8: error: package com.jet does not exist
+                com.jet.Printer printer = new Printer();
+                       ^
+src\Demo.java:8: error: cannot find symbol
+                com.jet.Printer printer = new Printer();
+                                              ^
+  symbol:   class Printer
+  location: class Demo
+2 errors
+
+C:\Users\klu\Desktop\Java\task1>javac -classpath C:\Users\klu\Desktop\Java\task1\printer.jar src/Demo.java -d .
+src\Demo.java:8: error: package com.jet does not exist
+                com.jet.Printer printer = new com.jet.Printer();
+                       ^
+src\Demo.java:8: error: package com.jet does not exist
+                com.jet.Printer printer = new com.jet.Printer();
+                                                     ^
+2 errors
+
+C:\Users\klu\Desktop\Java\task1>
