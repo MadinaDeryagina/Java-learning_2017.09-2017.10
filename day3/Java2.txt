@@ -1,0 +1,16 @@
+	По maven:
+	Не хочется с нуля создавать структуру проекта, папки, в mvn есть плагин, которые позволяет с нуля полностью структуру проекта сгенерировать.
+	Пример:
+	mkdir temp
+	cd temp
+	Плагин, который нас интересует, называется archetype - он содержит огромное количество готовых структур проектов.
+	mvn archetype:generate
+	
+	Он предложит выбрать шаблон проекта, по умолчанию 1052, затем запросит версию, выбираем например 6.
+	Затем предложит ввести artifactId и groupId
+	
+	Define value for property 'groupId': com.jet
+	Define value for property 'artifactId': Demo
+	Define value for property 'version' 1.0-SNAPSHOT: :
+	
+	И все, у нас создаться проект и простейший pom.xml.
