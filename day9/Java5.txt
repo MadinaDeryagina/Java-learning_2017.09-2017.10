@@ -1,0 +1,336 @@
+		Concurrency
+	public class ConcurrencyDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Counter count = new Counter();
+        ExecutorService pool = Executors.newFixedThreadPool(1_000);
+        for (int counter = 0; counter < 10_000; counter++) {
+            pool.submit(() -> count.increment());
+        }
+        pool.awaitTermination(5, TimeUnit.SECONDS);
+        System.out.println(count.getCounter());
+    }
+}
+
+class Counter {
+    private int counter = 0;
+    public void increment() {
+        counter++;
+    }
+    public int getCounter() {
+        return counter;
+    }
+}
+По идее в counter должно быть в результате 10000, но там не будет 10000, потому что операция ++ не атомарная
+       //heap.counter -> local
+       //local = local + 1
+       //local -> heap.counter;
+Изменения, сделанные одной нитью не всегда видны другой нитью. Предыдущий тред замораживается, происходит переключение на другую нить, мы
+в новой нити будем делать туже операцию, но так как у нас предыдущая нить не отработала до конца - она использует те данные, которые у нее были во время
+заморозки, поэтому надо как то обеспечивать чтобы не происходило перетирания данных. Эта проблема называется Data Erase.
+	Проблема Data Erase: если у нас есть несколько тредов, если хотябы один из них пишет в общие данные, у нас некорректная программа.
+	Потому надо делать imutable state.
+	
+	Чтобы избавиться от этого, делаем synchronized
+	class Counter {
+    private int counter = 0;
+    public synchronized void increment() {
+        counter++;
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+    public int getCounter() {
+        return counter;
+    }
+}
+
+Что делает метод synchronized - он закрывает данные, когда заходит нитка. Остальные треды ждут, пока отработает нить, которая заняла ресурс. Но как быть если
+у нас несколько объектов, мы можем сделать так
+class Counter {
+    private int counter = 0;
+    public void increment() {
+        synchronized (this) {			// блокируется объект текущего экземпляра
+            counter++;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+    public int getCounter() {
+        return counter;
+    }
+}
+Можно ли сделать synchronized к другому объекту?
+Все методы synchronized по одному и тому же объекту одновременно закрываются и одновременно открываются.
+class Counter {
+    private int counter = 0;
+    public void increment() {
+        synchronized (monitor) {
+            counter++;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+    public int getCounter() {
+        return counter;
+    }
+}
+Закрываем объект по замочку monitor.
+По умолчанию метод закрывается по this. Но если нам допустим надо для всех объектов закрыть все synchronized - секции, делаем так.
+package parallelismdemo;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+public class ConcurrencyDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Object monitor = new Object();
+        Counter count = new Counter(monitor);
+		Counter count2 = new Counter(monitor);
+        ExecutorService pool = Executors.newFixedThreadPool(1_000);
+        for (int counter = 0; counter < 10_000; counter++) {
+            pool.submit(() -> count.increment());
+        }
+        pool.awaitTermination(5, TimeUnit.SECONDS);
+        System.out.println(count.getCounter());
+    }
+}
+
+class Counter {
+    private int counter = 0;
+    private Object monitor;
+
+    public Counter(Object monitor) {
+        this.monitor = monitor;
+    }
+
+    public void increment() {
+        synchronized (monitor) {
+            counter++;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+	  public void decrement() {
+        synchronized (monitor) {
+            counter--;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+    public int getCounter() {
+        return counter;
+    }
+}
+В результате методы increment и decrement будут закрыты для объектов count и count2 и не смогут выполнится параллельно, т.к. переменная count будет закрыта.
+Это конечно фиговый вариант, потому как нам желательно для разных объектов синхронизировать и не синхронизировать методы, в зависимости от того, какой это объект
+и что ему надо сделать.
+	Если мы пропишем так:
+   public void increment() {
+        synchronized (this) {
+            counter++;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+	  public void decrement() {
+        synchronized (monitor) {
+            counter--;
+        }
+        //heap.counter -> local
+        //local = local + 1
+        //local -> heap.counter;
+    }
+Тогда у нас функция increment и decrement смогут выполняться параллельно, почему? Да потому что в synchronized (this) и в synchronized (monitor) разные флажки
+даже несмотря на то, что при создании объектов у нас в конструкторе было 
+ public Counter(Object monitor) {
+        this.monitor = monitor;
+ } Даже несмотря на это у нас смогут параллельно выполняться инкремент и декремент.
+	У нас возникает большая проблема, которая называется deadlock. 
+	Стоит почитать Java concurrency injection.(Книга по всей этой магии, точно стоит почитать)
+
+По поводу сокетов - кладем их в коллекцию и делаем ее synchronized, иначе во время изменения коллекции у нас произойдет concurrentCollectionException.
+Но что если читать параллельно, а писать синхронизировано.
+
+		Есть такая вещь: Lock lock = new ReentrantLock(); - это полная аналогия synchronized
+		lock.tryLock();
+		
+			Так делаем 2 lock: ReadLock и WriteLock
+		ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+        lock.readLock();
+Можно сделать так:
+ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+        lock.readLock();
+        synchronized (monitor) {
+            counter++;
+        }
+        try {
+            lock.readLock().lock();
+        } catch (Exception e) {
+            
+        } finally {
+            lock.readLock().unlock();
+        }
+		
+Поэтому 1 шаг: защитить нашу коллекцию, затем если захотим сделаем concurrent collection.
+
+
+
+
+
+		Есть еще тонкий момент с ожиданием: можем заставить ниточку подождать событие.
+	В чем засада: хотим, чтобы ниточка зашла, ждала бы определенного условия, пока не наступило какое-то событие - это делается с помощью методов wait и
+notify, к примеру
+
+synchronized (monitor) {
+            if(counter <= 0) monitor.wait();
+            counter++;
+        }
+		Но где же нам разбудить ниточку, нам надо вызвать метод notify.
+		
+		
+	И на последок JMM
+class MyThread extends Thread {
+    private boolean isStopped;
+
+    public void setStopped(boolean stopped) {
+        isStopped = stopped;
+    }
+    
+    @Override
+    public void run() {
+        while(!isStopped) {
+            
+        }
+    }
+} 
+Фишка в том что такое код не корректный, из одного треда мы эту переменную меняет, но второй тред эту переменную не видит. Если этот код счастливым образом
+запустится - это заслуга аппаратной платформаы, потому как Java постоянно может менять кэши - 1-го, 2-го уровня и потому будут проблемы.
+//JMM: reordering visibility
+class MyThread extends Thread {
+    private boolean isStopped;
+
+    public void setStopped(boolean stopped) {
+        isStopped = stopped;
+    }
+
+    @Override
+    public void run() {
+        while(!isStopped) {
+
+        }
+    }
+}
+
+class VisibilityDemo {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread myThread = new MyThread();
+        myThread.start();
+        Thread.sleep(5_000);
+        myThread.setStopped(true);
+    }
+}
+Не останавливается через 5 секунд. В чем прикол? Изменение в 1 треде не видно изменению в другой нити. Мы ей должны немного помочь - сказать, чтобы jvm не
+делало оптимизации, если что-то поменял 1 тред, чтобы другие треды видели эти изменения. Делаем volatile так:
+//JMM: reordering visibility
+class MyThread extends Thread {
+    private volatile boolean isStopped;
+
+    public void setStopped(boolean stopped) {
+        isStopped = stopped;
+    }
+
+    @Override
+    public void run() {
+        while(!isStopped) {
+
+        }
+    }
+}
+
+class VisibilityDemo {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread myThread = new MyThread();
+        myThread.start();
+        Thread.sleep(5_000);
+        myThread.setStopped(true);
+    }
+}
+Есть еще 1 способ - это сделать synchronized, примерно так:
+class MyThread extends Thread {
+    private boolean isStopped;
+
+    public synchronized void setStopped(boolean stopped) {
+        isStopped = stopped;
+    }
+
+    @Override
+    public synchronized void run() {
+        while(!isStopped) {
+
+        }
+    }
+}
+
+class VisibilityDemo {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread myThread = new MyThread();
+        myThread.start();
+        Thread.sleep(5_000);
+        myThread.setStopped(true);
+    }
+}
+Нам важен факт выхода и входа. Тогда делаем так
+class MyThread extends Thread {
+    private boolean isStopped;
+
+    public synchronized void setStopped(boolean stopped) {
+        isStopped = stopped;
+    }
+
+    @Override
+    public synchronized void run() {
+        while(true) {
+            synchronized (this) {
+                if(isStopped) return;
+            }
+        }
+    }
+}
+
+class VisibilityDemo {
+    public static void main(String[] args) throws InterruptedException {
+        MyThread myThread = new MyThread();
+        myThread.start();
+        Thread.sleep(5_000);
+        myThread.setStopped(true);
+    }
+}
+Идея такая: мы делаем доступ к разделяемым переменным либо через volatile, либо через synchronized. Последний пример может быть неточным - смотрим gitHub
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
