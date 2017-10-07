@@ -1,0 +1,125 @@
+		Сетевой ввод-вывод.
+	Сегодня все ОС - сетевый, самый популярный стек - TCP. Чтобы установить соединение берем класс import java.net.Socket;
+	Java - все равно, что подают в функцию в качестве ip-адреса, она отправляет строку в операционную систему.
+	В момент создания сокета, может произойти исключение, поэтому надо обрабатывать исключение.
+	Класс сокет у нас closeable, т.е. его надо закрыть.
+	
+	public class ClientDemo {
+    public static void main(String[] args) {
+        try (Socket connection = new Socket("localhost", 9999);){
+            connection.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	В try with resourced обязательно нужна переменная, поэтому делаем так:
+	 try (
+                Socket connection = new Socket("localhost", 9999);
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                new BufferedInputStream(
+                                        connection.getInputStream())));
+        )
+		
+	При вызове закрытия, BufferedReader in, будет по леснице закрыты все потоки + закроется сокет.
+	
+	Теперь сделаем вывод в сокет:
+	 PrintWriter out = new PrintWriter(
+                        new OutputStreamWriter(
+                                new BufferedOutputStream(
+                                        connection.getOutputStream())));
+										
+	Теперь пишем сервер. В простом варианте, если сервер на может занять порт - просто падает.
+	Что делать, если мы долго висим в методе accept(), а мы хотим перезагрузить сервер - java не даст закрыть сокет.
+	Для этого есть connectionListener.setSoTimeout(); которая позволяет выставить время, через какое время будет закрыт сокет.
+	public class ServerDemo {
+    public static void main(String[] args) throws IOException {
+        ServerSocket connectionListener = new ServerSocket(9999);
+        connectionListener.setSoTimeout(1_000);
+        try (
+                Socket connection = connectionListener.accept();
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                new BufferedInputStream(
+                                        connection.getInputStream())));
+                BufferedWriter out = new BufferedWriter(
+                        new OutputStreamWriter(
+                                new BufferedOutputStream(
+                                        connection.getOutputStream())));
+        ){
+            //Теперь что-нибудь запишем в сокет, получим и выведем в консольку
+            out.write("Hello!!");
+            out.newLine();
+
+            System.out.println(">>>> " + in.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+В этом случае у нас возникает проблема сброса буфера - данные мы получили, но буфер же не сбросили, ну как же так, нууу! Быстрее бежим делать flush
+Теперь пишем логику обработки, что делать должна программа. Может быть такая проблема, что мы не сбросили буфер. Поэтому прописываем обязательно out.flush();
+
+package NetworkingDemo;
+import java.io.*;
+import java.net.Socket;
+
+public class ClientDemo {
+    public static void main(String[] args) {
+        try (
+                Socket connection = new Socket("localhost", 9999);
+                BufferedWriter out = new BufferedWriter(
+                        new OutputStreamWriter(
+                                new BufferedOutputStream(
+                                        connection.getOutputStream())));
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                new BufferedInputStream(
+                                        connection.getInputStream())));
+        ){
+            //Теперь что-нибудь запишем в сокет, получим и выведем в консольку
+            out.write("Hello!!");
+            out.newLine();
+            out.flush();
+
+            System.out.println(">>>> " + in.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+package NetworkingDemo;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerDemo {
+    public static void main(String[] args) throws IOException {
+        ServerSocket connectionListener = new ServerSocket(9999);
+        //connectionListener.setSoTimeout(1_000);
+        try (
+                Socket connection = connectionListener.accept();
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                new BufferedInputStream(
+                                        connection.getInputStream())));
+                BufferedWriter out = new BufferedWriter(
+                        new OutputStreamWriter(
+                                new BufferedOutputStream(
+                                        connection.getOutputStream())));
+        ){
+            //Теперь что-нибудь запишем в сокет, получим и выведем в консольку
+            out.write("resieved: " + in.readLine());
+            out.newLine();
+            out.flush();
+
+            //System.out.println(">>>> " + in.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Вот теперь нормально все работает :)
+	

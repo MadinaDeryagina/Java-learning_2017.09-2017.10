@@ -1,0 +1,95 @@
+		Продолжение про потоки.
+		
+		package IoDemo;
+
+import java.io.*;
+
+public class IoDemo2 {
+    public static void main(String[] args) {
+        File path = new File("test.txt");//Где создатся файл? Нигде
+        path.exists();
+        path.getAbsolutePath();
+        try (RandomAccessFile raf = new RandomAccessFile(path, "rw")) {
+            raf.seek(2);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        InputStream in;
+        OutputStream out;
+        //new FileInputStream(path); //С ним работать не прикольно делаем
+        //new BufferedInputStream(new FileOutputStream(path);); //С ним тоже не прикольно работать
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(path)))) {
+            objectOutputStream.writeObject(new Employee("qqq", 2));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //dataOS.writeInt(1);
+    }
+}
+
+class Employee {
+    private String name;
+    int id;
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+class Employee implements Serializable {
+    private String name;
+    int id;
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+Так текст не сохранится в файл, чтобы он сохранился надо добавить в class Employee указание implements Serializeable
+Пытаемся считать объект из сети вот так:
+ try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))){
+            in.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	На так у нас будет ClassNotFounException, чтобы считать объект нам нужно иметь класс. Может случится так, что мы отправили по сети объект с одним 
+classpath, на удаленном компьютере другой classpath, поэтому нам надо ловить Exception ClassNotFounException.
+	Если принимаем класс не с такой же структурой, а схожей, Java пытается запихнуть в этот схожий класс тот объект, который мы отправили.
+Java ведет версиализацию объектов, если объекты не совпадают, она задает неявно версию объекта.
+private static long SerialVersionUID = 1;
+	Если вресии разойдутся, то у нас выйдет скорей всего ошибка.
+	В процессе readObject не вызывается никакого конструктора, создается инстанс, значения устанавливаются такие, которые он вычитывает из сети и жестко
+устанавливает считанные значения.
+
+		OXM(Object-XML-Mapping), OJM: Object-JSON-Mapping(Binding)
+	Самые популярные мапперы - это Jackson и Gson
+	Как ими пользоваться:
+		Иногда фреймворки не могут однозначно распарсить Java-объект, поэтому им надо немного помочь, например
+	@RootElement - указывает что этот элемент корневой.
+	@XmlAttribute
+	Serializeable нарушает 1 из принципов системы - переносимость. Иногда хочется странного - серилизовать на Java, а десерилозовать на C/C++, как же это сделать?
+Есть такой такой стандарт Corba, в нем есть ORB - в нем есть протокол IIOP, в Java есть реинкорнация такого, называется RMI, RMI - это упрощение IIOP.
+Стандарт Corba настолько сложный, что нет ни 1 реализации, которая соответсвовала бы этому стандарту. RMI - не переносимый.
+	Параллельно начали развиваться бинарные, но уже переносимы протоколы: Apache Thrift, google Protobuf
+	Идея такая: на псевдо-языке описываем API, потом специальные сервисы делают заглушки для разных языков. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

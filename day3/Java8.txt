@@ -1,0 +1,60 @@
+			Практика.
+	Мы будем писать Logger. Почему логгер? Потому что нет норм логгеров.
+	Что должен делать логгер?
+	1. Внимательно читать и анализировать тесты. Тесты - это и есть требования, как ожидания к тому, что будет делать система.(Это называется ADD)
+	2. Открываем 1-ую итерацию, раскоментируем кейсы.
+	3. Дальше делаем в логгере функционал, который выполняет эти кейсы.
+	
+	1. Критерий приемки, все спецификации должны быть зелеными
+	2. Избегать копирования - вставки(дублирования кода).
+	//region given подразумевает описания требований.
+	Аннотация Before конфигурирует все так, чтобы тесты выполнялись для программы Logger.
+	assertSysoutContains("char: "); - метод ожидает, что на выходе будет char: 
+	Читаем, что заказчик по shouldLogByte - логгер должен уметь журналировать байт. 
+	shouldLogСhar - логгер должен уметь журналировать char. 
+	3. Все тесты должны проходить. Для первой итерации делаем до string включительно.
+	
+	Здесь есть вариативность: что выводить - одна ответсвенность, куда выводить - другая ответсвенность. Поэтому надо избегать дублирования любой ценой.
+	public static void log(int message) {
+        System.out.println("primitive" + message);
+    }
+
+    public static void log(byte message) {              //Также можно просто снести этот
+        System.out.println("primitive" + message);        //ненунжный метод :) есть же с int
+    }
+	
+	Рефакторинг: чтобы из строчки сделать константу, можно использовать extract. 
+	ctr+shift+a -> extract, можно экстрактировать поле, метод, константу, задаем имя к примеру PIMITIVE_PREFIX, тогда получается
+	Получается
+	public static void log(int message) {
+        System.out.println(PIMITIVE_PREFIX + message);
+    }
+
+    public static void log(byte message) {              //Также можно просто снести этот
+        System.out.println(PIMITIVE_PREFIX + message);        //ненунжный метод :) есть же с int
+    }
+	
+	Ради единообразия принимаем решение испльзовать константы везде, даже там, где в принципе это не нужно, к примеру
+	public static void log(char message) {              
+        System.out.println("char: " + message);        
+    }
+	приводим к виду
+	String CHAR_PREFIX;
+	public static void log(char message) {              
+        System.out.println(CHAR_PREFIX + message);        
+    }
+	Жизнь за единообразие!!!
+	
+	Теперь нам надо экстактнуть метод, выбираем System.out.println(PIMITIVE_PREFIX + message); нажимаем ctrl+alt+m 
+	И экстрактируем метод, выбираем - отрефакторить код везде.
+	private static void print(int message) {
+        System.out.println(primitive + message);
+    }
+	
+	public static void log(int message) {
+        print(message);
+    }
+	
+	У заказчика надо уточнять спецификацию, что имеется ввиду, чтобы не было неоднозначного недопонимания.
+	
+	

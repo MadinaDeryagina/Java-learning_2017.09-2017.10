@@ -1,0 +1,105 @@
+		API ввода - вывода в Java.
+	import java.io.File;
+
+	public class IoDemo {
+		public static void main(String[] args) {
+			File file = new File("test.txt");
+			//Где создатся файл? 
+		}
+	}
+	Вопрос: где создастся файл? Ответ: нигде! Идея класса File - инкапсулировать путь, а что там в этом пути - это мы уже будем проверять.
+	public class IoDemo {
+		public static void main(String[] args) {
+			File path = new File("test.txt");
+			path.exists();
+		}
+	}
+	Теперь мы можем проверить - существует ли файл вызовом exists();
+	Теперь через переменную path мы можем проверить, является ли путь файлом, является ли дирректорией. Если папочка - можем взять все что в папочке есть и
+и получить массив. Есть list и listFiles - в чем разница? List - возвращает массив стрингов, а ListFiles возвращает массив объекторв типа файл.
+	
+	Как правильно задавать путь? 
+	Надо собирать пусть вот так: File path = new File("asd" + File.separator + "test.txt");
+	
+	Есть библиотек NIO2 - там больше всяких возможностей.
+	
+	path.getAbsolutePath(); - можно получить абсолютный путь в файловой системе.
+
+	RandomAccessFile raf = new RandomAccessFile();	 // произвольный доступ к файлу.
+	
+	    try (RandomAccessFile raf = new RandomAccessFile(path, "rw");) {
+            
+        } catch (FileNotFoundException) {
+            
+        } catch (IOException e) {
+            
+        }
+	RandomAccessFile - имеет интерфейс closeable
+	У раф есть операция seek() - которая позволяет поставить курсор на произвольную позицию в файле.
+	
+		Важная штука IO Streams
+	InputStream in;				// Это абстрактные классы
+	OutputStream out;			// Это абстрактные классы
+	BufferedInputStream - принимает на вход поток и как-то модифицирует данные в потоке(такой класс называется фильтрующий) По умолчанию размер буфера 8 килобайт.
+Мы платим еще актуальностью данных. Данные в буфере актуальны, там очень мало расхождений, но данные из буфера не попадают еще пока во внешнюю систему. Возникает
+нецелостность в некоторые моменты времени.
+				
+				
+	Зачем нужен BufferedInputStream? Затем, что нам надо накопить некоторую часть и сбрасываем буфер, снижая overhead, но платим за это ресурсами.
+				
+												
+											 --------------- OutputStream
+											|		 			^
+											|					|
+											|					|
+											|					|
+											|	----------- ObjectInputStream
+											|	|	
+											|	|	
+											|	|	|------ ObjectInputStream
+											|	|	|			|
+											|	|	|			|
+											V	V	V			V
+											closeable <---- InputStream <-- FileInputStream
+															   ^ ^
+														 ______| |
+														/		 |
+										DataInputStream		BufferedInputStream
+							
+						
+						
+    Если обощить проблему - это называется CAP - теорема
+	Второй фильтрующий поток называется DataInputStream - оперирует уже не битами, а данными - byte-ами, int-ами, String-ами.
+	А что если хотим читать и писать обзектами? Есть ObjectInputStream и ObjectOutputStream.
+	    new FileInputStream(path); //С ним работать не прикольно делаем
+        new BufferedInputStream(new FileInputStream(path);); //С ним тоже не прикольно работать
+        DataOutputStream dataOS = new DataOutputStream(new BufferedInputStream(new FileInputStream(path)));  //Воо сама то!
+		
+	    try {
+            DataOutputStream dataOS = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(path)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+	Теперь можем сделать что то типа dataOS.("Hello!");
+	
+	Как назвать аналоги потоков для символьных типов ввода/вывода - классы Reader и Writer, 
+		У них конкретная реализация FileReader и FileWriter. Для буффера есть BufferedReader и BufferedWriter
+		System.out оказывается объектом PrintWriter.
+		
+		Библиотеки Reader и Writer, FileReader FileWriter BufferedReader BufferedWriter PrintWriter работают только в UNICODE. Если они были сохранены в однобайтовой
+кодировке, тогда все усложняется, надо читать не символьным потоком, а байтовым. Для этого есть переходник, называется InputStreamReader. Здесь надо склеить табличкой
+в которой у нас идет кодировка - по умолчанию это кодировка операционной системы, но мы можем задать сами.	
+	
+	
+	Самая хорошая и простая библиотека называется Apache Jakarta
+	
+	Еще реально надо знать, что у нас разные сигналы завершения - в битовых у нас сигнал завершения - это EOF, а в строковых библиотеках у нас будет 
+null-строка.
+	
+	
+	
+	
+	
+	
+	
+	

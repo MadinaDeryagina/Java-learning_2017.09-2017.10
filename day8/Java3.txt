@@ -1,0 +1,62 @@
+		Generics
+	Хочется странного: запилить какой-то алгоритм, который работал бы с любыми типами данным.
+	Самая рабочая лошадка - это коллекционная api.
+	
+	Проблема: с одной стороны сделать нашу структуру данных обощенной, но при для конкретного типа делать конкретные вещи.
+Для этого нам на помощь приходят шаблоны или как в java - обощенные алгоритмы(Generics).
+Потому делаем не public class GenericQueue, a делаем public class GenericQueue<T>.
+	1. Мы делаем наш класс параметризованным
+	GenericQueue<T> - так мы описываем формальный тип, а не фактический
+	queue.enqueue("1"); - так мы описываем уже фактический тип.
+	Теперь говорим компилятору работать с конкретным типом, вот так: GenericQueue<String> queue = new GenericQueue();
+	Если мы не хотим указывать тип, говорим что хотим работать с сырым типом - пишем GenericQueue queue = new GenericQueue();
+	
+	Что нам нужно знать:
+		1. Если мы указываем при инициализации тип new GenericQueue<String>(); то он уже будет ждать по умолчанию во всех функциях тип String
+		2. Если хотим GenericQueue<Object> queue3 = new GenericQueue<Integer>(); то так у нас ничего не получится, должно соблюдаться соответсвие 
+типа параметризованной ссылки и тип значения, также не получится GenericQueue<Integer> queue3 = new GenericQueue<Object>(); - Должно быть строгое соответствие
+Если разрываем факт использования и факт порождения, мы можем вызвать метод, которого нет в другом типе -> ошибка. В обратную сторону получится также, что одна
+из сторон не готова.
+		Чтобы не кастить, будем использовать максимально узкие типы.
+		
+	Если проектируем сложную систему типов, чтобы показать явно, что наша система типов будет работать корректно, то есть мы ждем не object, а любого наследника
+object-а, вот так:
+	GenericQueue<? extends Object> queue3 = new GenericQueue<Integer>();
+    GenericQueue<? super Integer> queue4 = new GenericQueue<Object>();
+	
+	Параметризованный метод
+	public static <P> P sort() {
+        return null;
+    }
+	Так мы можем создать параметризованный метод, который возвращает значение типа P, и работает со значениями типа P
+	вызываем так: GenericQueue.sort("");
+	
+	Как нам вернуть конкретный тип? А вот так:
+	GenericQueue.<String>sort("");
+	
+	Параметризованный интерфейс:
+	interface Queue<T> {
+		void enqueue(T element);
+	}
+
+	class MyQueue1 implements Queue<String> {
+		public void enqueue(String str) {
+			
+		}
+	}
+
+	class MyQueue2<T> implements Queue<T> {
+		public void enqueue(T element) {
+			
+		}
+	}
+
+	class MyQueue3<String> implements Queue<Object> {
+		public void enqueue(Object element) {
+
+		}
+	}
+	MyQueue2 - это параметризованный класс, MyQueue1 - не параметризованный, так как мы указали тип, MyQueue3 - неправильный пример(низя так делать).
+	
+	Надо посмотреть медот sort у коллекци и разобраться, почему указан (Comporator <? super T> c) почему именно super T, а не просто T
+	

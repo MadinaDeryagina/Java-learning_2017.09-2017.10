@@ -1,0 +1,161 @@
+		Функциональный стиль.
+		InnerClassDemo
+	Классы можно вкладывать в другие классы.
+	public class InnerClassDemo {
+		static class StaticInner {
+			private int state;
+			public void m() {
+				
+			}
+		}
+	}
+	Если класс static - то внешний класс просто является расширением пакета, например:
+	public class InnerClassDemo {
+		public static void main(String[] args) {
+			Outer.StaticInner object = new Outer.StaticInner();
+		}
+	}
+
+	class Outer {
+		static class StaticInner {
+			private int state;
+			public void m() {
+
+			}
+		}
+	}
+	
+	Статические вложенные классы можно считать как один из методов инкапсуляции. Если класс в отрыве от другого класса бессмысленно рассматривать, можно сделать
+вложенным классом.
+После компиляции появится 2 файла *.class второй из которых будет Outer$StaticInner.class.
+	Плюшки:
+	1. У вложенных классов можно сделать любую видимость.
+	2. Во вложенным классом можно сделать доступ до приватных полей внешних классов, но это только в случае, если поле static. Пример:
+	public class InnerClassDemo {
+		public static void main(String[] args) {
+			Outer.StaticInner object = new Outer.StaticInner();
+		}
+	}
+
+	class Outer {
+		private static int state;
+		static class StaticInner {
+			public void m() {
+				state = 0; // обращение к полю.
+			}
+		}
+	}
+	
+	Могут ли вложенные классы быть не static? Ответ: могут! Пример создания экзепляра вложенного класса:
+	public class InnerClassDemo {
+		public static void main(String[] args) {
+			Outer outer = new Outer();
+			Outer.Inner inner = outer.new Inner(); 
+			Outer.Inner i = new Outer().new Inner(); 
+		}
+	}
+
+	class Outer {
+		private int state;
+		public class Inner {
+
+			public void m() {
+				state = 0;
+			}
+		}
+	}
+	так мы во вложеннем классе меняем state, можем ли мы поменять внешний state? Ответ: можем! Это можно сделать так:
+	Outer.this.state = 0;
+	Плюшки:
+		1. Инкапсуляция.
+		2. На халяву связываем классы. Нестатические вложенные классы - это хороший выбор. Но это не спользуется не очень часто.
+		
+	А что если сделать так: 
+	class Outer {
+		private int state;
+		void m() {
+			class Inner {
+			}
+		}
+	}
+	Вложенный класс становится локальным для этого метода. Зачем это нужно? Мы допустим хотим возвращать не класс, а наследника от него.
+	Можно ли в методе при возврате использовать локальную переменную? Можно. Но ее нельзя редактировать
+	class Outer {
+		private int state;
+		public Comparator m() {
+			int localVar = 1;
+			return new Comparator() {
+				@Override
+				public int compare(Object o1, Object o2) {
+					System.out.println(localVar);              //можно
+					localVar = 2;							   //нельзя
+					return 0;
+				}
+			};
+		}
+	}
+	
+	Функция compare - это замыкание, надо почитать подробнее!!! Подробнее про анонимные вложенные классы.
+	
+	
+	Получаем анонимный вложенный класс, у него даже имени нет, он имеет доступ к приватным состояниям, локальным переменным. При компиляции
+получится 2 файла Outer.class и Outer$1.class
+	Как получить обхект интерфейса компаратора?
+	Вот так Outer.m().compare();
+	Как это использовать? Из функции возвращаем функцию, их этой функции возвращаем еще функцию и так выстраиваем действия, но пока из не выполняем, получается
+вроде как конструируем, а потом когда нам надо запускаем, при том можем решить распараллелить или выполнить асинхронно и т.д.
+	Если хотим сделать отложенную работу:
+	
+	public class InnerClassDemo {
+		public static void main(String[] args) {
+			//Outer outer = new Outer();
+			//Outer.Inner inner = outer.new Inner();
+			DelayWorker queue = new DelayWorker();
+			queue.doLater(new Worker() {
+				@Override
+				public int doWork() {
+					return Integer.parseInt(args[0]);
+				}
+			});
+		}
+	}
+
+	class DelayWorker {
+		private int state;
+		public int doLater(Worker toDo) {
+			//...
+			return toDo.doWork();
+		}
+	}
+
+	interface Worker {
+		int doWork();
+	}
+	
+	Таким образом мы запаковали действия в анонимный класс. И мы можем эту работу запустить отложенно, более того в замыкании можно обращаться к статическим переменным.
+
+	
+	Про коллекции немного.
+	Функции высших порядков - это функция, которая принимает функцию в качестве параметров.
+	Array.asList(1,6,2,3,4).stream().map(e -> "" + e); - функция map будет применена к каждому элементу.
+	Array.asList(1,6,2,3,4).stream().map(Object::toString()); - тоже самое но получше.
+	Дальше что делаем, например хотим получить boolean
+	Array.asList(1,6,2,3,4).stream().filter(e->e>2).map(Object::toString()).sorted((e1,e2) -> !e1.compareTo(e2)).;
+	Array.asList(1,6,2,3,4).stream().filter(e->e>2).map(Object::toString()).sorted(Comparator.reverseOrder()). - тоже, что строка выше.
+	Получили отсортированную коллекцию.
+	Чтобы запустить функции - вызываем терминальный метод, напрмер forEach()
+	Array.asList(1,6,2,3,4).stream().filter(e->e>2).map(Object::toString()).sorted(Comparator.reverseOrder()).forEach(e -> System.out.println(e));
+	Array.asList(1,6,2,3,4).stream().filter(e->e>2).map(Object::toString()).sorted(reverseOrder()).forEach(e -> System.out.println(e)); тоже,что строка выше
+	Array.asList(1,6,2,3,4).stream().filter(e->e>2).map(Object::toString()).sorted(reverseOrder()).forEach(System.out::println); - тоже, что строка
+выше.
+	У stream() есть хорошее дополнение parallelStream() - он сам решит, какие действия параллельны, а какие нет
+	Array.asList(1,6,2,3,4).parallelStream().filter(e->e>2).map(Object::toString()).sorted(reverseOrder()).forEach(System.out::println);
+	
+		Зачем все это?
+		Эти все прекрасно параллелится, такой стиль нас очень хорошо толкает в сторону параллелизма. Statefull -структура - это большое количество 
+DataErase, а функциональный стил позволит хорошо распаралелить и ничего страшного с данными происходить не будет.
+	
+	
+	
+	
+	
